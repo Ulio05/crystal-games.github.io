@@ -3336,7 +3336,7 @@ input, select, textarea {
 }
 
 .progress-bar {
-	width: 15%; /* Ajustez la largeur pour changer le niveau de progression */
+	width: 40%; /* Ajustez la largeur pour changer le niveau de progression */
 	height: 30px;
 	background-color: #4caf50;
 
