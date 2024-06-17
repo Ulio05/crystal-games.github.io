@@ -11,6 +11,42 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="icon" type="images/logo.png" href=" images/logo.png">
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>.carousel {
+			width: 500px; /* Largeur du carrousel */
+			overflow: hidden; /* Cache les images hors de la zone visible */
+			margin: 20px auto;
+		}
+
+		.carousel-inner {
+			display: flex; /* Affiche les images en ligne */
+			transition: transform 0.5s ease; /* Animation de transition */
+		}
+
+		.carousel-item {
+			flex: 0 0 auto; /* Empêche les images de changer de taille */
+			width: 500px; /* Largeur d'une image */
+		}
+
+		.prev, .next {
+			cursor: pointer; /* Change le curseur au survol */
+			position: absolute; /* Position absolue par rapport au carousel */
+			top: 50%; /* Alignement vertical au milieu */
+			transform: translateY(-50%); /* Déplace le bouton de moitié de sa hauteur vers le haut */
+			background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+			color: #fff; /* Couleur du texte */
+			padding: 10px; /* Espacement intérieur */
+			border: none; /* Pas de bordure */
+			z-index: 1; /* Empile le bouton au-dessus des images */
+		}
+
+		.prev {
+			left: 0; /* Alignement à gauche */
+		}
+
+		.next {
+			right: 0; /* Alignement à droite */
+		}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -35,11 +71,34 @@
 				</div>
 
 			<!-- Banner-->
-				<section id="banner"><!--
-					<header>
-						<h2>Arcana: <em>A responsive site template freebie by <a href="http://html5up.net">HTML5 UP</a></em></h2>
-						<a href="#" class="button">Learn More</a>
-					</header>-->
+				<section>
+					<div class="carousel">
+						<div class="carousel-inner">
+							<img class="carousel-item" src="images/banner.jpeg" alt="Image 1">
+							<img class="carousel-item" src="image2.jpg" alt="Image 2">
+							<img class="carousel-item" src="image3.jpg" alt="Image 3">
+						</div>
+						<button class="prev" onclick="prevSlide()">❮</button>
+						<button class="next" onclick="nextSlide()">❯</button>
+					</div>
+
+					<script>
+						let currentIndex = 0;
+
+						function nextSlide() {
+							const carousel = document.querySelector('.carousel-inner');
+							const numSlides = carousel.children.length;
+							currentIndex = (currentIndex + 1) % numSlides;
+							carousel.style.transform = `translateX(${-currentIndex * 500}px)`;
+						}
+
+						function prevSlide() {
+							const carousel = document.querySelector('.carousel-inner');
+							const numSlides = carousel.children.length;
+							currentIndex = (currentIndex - 1 + numSlides) % numSlides;
+							carousel.style.transform = `translateX(${-currentIndex * 500}px)`;
+						}
+					</script>
 				</section>
 			<!-- Gigantic Heading -->
 			<section class="wrapper style2">
