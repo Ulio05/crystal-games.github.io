@@ -3336,7 +3336,7 @@ input, select, textarea {
 }
 
 .progress-bar {
-	width: 40%; /* Ajustez la largeur pour changer le niveau de progression */
+	width: 99%; /* Ajustez la largeur pour changer le niveau de progression */
 	height: 30px;
 	background-color: #4caf50;
 
@@ -3358,4 +3358,106 @@ th {
 
 tr:hover {
     background-color: #f5f5f5;
+}
+.carousel {
+	width: 100%; /*<--!* Largeur du carrousel *!-->*/
+	overflow: hidden; /*//!* Cache les images hors de la zone visible */
+	margin: 20px auto;
+	height: 28em;
+	/*background-position: center center;
+	background-size: cover;
+
+	text-align: center;
+	position: relative;*/
+}
+
+.carousel-inner {
+	display: flex; /* Affiche les images en ligne */
+	transition: transform 0.5s ease; /* Animation de transition */
+}
+
+.carousel-item {
+	flex: 0 0 auto; /* Empêche les images de changer de taille */
+	width: 100%; /* Largeur d'une image */
+	top: 90%;
+}
+
+.prev, .next {
+	cursor: pointer; /* Change le curseur au survol */
+	position: absolute; /* Position absolue par rapport au carousel */
+	top: 75%; /* Alignement vertical au milieu */
+	transform: translateY(-50%); /* Déplace le bouton de moitié de sa hauteur vers le haut */
+	background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+	color: #fff; /* Couleur du texte */
+	padding: 10px; /* Espacement intérieur */
+	border: none; /* Pas de bordure */
+	z-index: 1; /* Empile le bouton au-dessus des images */
+}
+
+.prev {
+	left: 0; /* Alignement à gauche */
+}
+
+.next {
+	right: 0; /* Alignement à droite */
+}
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	background-color: #f4f4f4;
+}
+
+/*header {
+	background-color: #333;
+	color: #fff;
+	padding: 1em 0;
+	text-align: center;
+}
+
+header h1 {
+	margin: 0;
+}*/
+
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline;
+	margin: 0 10px;
+}
+
+nav ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+nav ul li a.active {
+	text-decoration: underline;
+}
+
+main {
+	padding: 1em;
+}
+
+h2 {
+	color: #333;
+}
+
+kbd {
+	background-color: #eee;
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	font-family: monospace;
+}
+
+ul {
+	margin-top: 0;
+}
+
+ul li {
+	margin-bottom: 0.5em;
 }

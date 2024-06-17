@@ -29,7 +29,7 @@
 								<li class="current"><a href="index.html">Acceuil</a></li>
 								<li><a href="ProposDeNous.html">A Propos de Nous</a></li>
 								<li><a href="Avancement.html">Notre Avancement</a></li>
-								<li><a href="Reference.html">Référence</a></li>
+								<li><a href="Reference.html">Guide de démarrage</a></li>
 								<li><a href="no-sidebar.html">Mentions légale</a></li>
 							</ul>
 						</nav>
@@ -37,8 +37,36 @@
 				</div>
 
 			<!-- Banner-->
-				<section id="banner">
-				</section>
+
+					<div class="carousel">
+						<div class="carousel-inner">
+							<img class="carousel-item" src="images/image.png" alt="Image 1">
+							<img class="carousel-item" src="images/image2.png" alt="Image 2">
+							<img class="carousel-item" src="images/image3.jpeg" alt="Image 3">
+							<img class="carousel-item" src="images/banner.jpg" alt="Image 4">
+						</div>
+						<button class="prev" onclick="prevSlide()">❮</button>
+						<button class="next" onclick="nextSlide()">❯</button>
+					</div>
+
+					<script>
+						let currentIndex = 0;
+
+						function nextSlide() {
+							const carousel = document.querySelector('.carousel-inner');
+							const numSlides = carousel.children.length;
+							currentIndex = (currentIndex + 1) % numSlides;
+							carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+						}
+
+						function prevSlide() {
+							const carousel = document.querySelector('.carousel-inner');
+							const numSlides = carousel.children.length;
+							currentIndex = (currentIndex - 1 + numSlides) % numSlides;
+							carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+						}
+					</script>
+
 			<!-- Gigantic Heading -->
 			<section class="wrapper style2">
 				<div class="container">
@@ -105,7 +133,7 @@
 									<li class="current"><a href="index.html">Accueil</a></li>
 									<li><a href="ProposDeNous.html">A Propos de Nous</a></li>
 									<li><a href="Avancement.html">Notre Avancement</a></li>
-									<li><a href="Reference.html">Référence</a></li>
+									<li><a href="Reference.html">Guide de démarrage</a></li>
 									<li><a href="no-sidebar.html">Mentions légale</a></li>
 								</ul>
 							</section>

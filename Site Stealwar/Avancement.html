@@ -22,7 +22,7 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="ProposDeNous.html">A Propos de Nous</a></li>
                 <li class="current"><a href="Avancement.html">Notre Avancement</a></li>
-                <li><a href="Reference.html">Référence</a></li>
+                <li><a href="Reference.html">Guide de démarrage</a></li>
                 <li><a href="no-sidebar.html">Mentions légales</a></li>
             </ul>
         </nav>
@@ -55,7 +55,7 @@
 
             <div class="progress-container">
                 <div class="progress-bar"></div>
-            </div><p>Nous sommes a 40% du jeux </p>
+            </div><p>Nous sommes a 99% du jeux </p>
             <section> <div id="titleBar"></div>
                 <article>
                     <header>
@@ -131,6 +131,38 @@
                 <!-- Ajoutez les autres lignes ici -->
                 </tbody>
             </table>
+                <article>
+                    <section>
+                        <h1>Game Design (Valentin Gunera)</h1>
+                        <p>La conception du jeu a été bien plus difficile que prévu, notamment pour créer une carte. En raison de la liberté des gardes de placer les salles, nous avons dû nous assurer que toutes les salles soient accessibles par trois moyens différents, afin d'éviter des stratégies d'anti-jeu. De plus, la seule entrée possible pour le voleur limitait les options et rendait difficile de permettre au voleur de surprendre les gardes, tout en respectant le thème de la banque. Il a fallu trouver un compromis entre réalisme et gameplay, ce qui a pris énormément de temps.</p>
+                        <p>De plus, toutes les idées ne sont pas réalisables : chaque nouvelle fonctionnalité demande beaucoup de travail aux développeurs. Des réunions ont été nécessaires pour trouver des compromis entre les idées et leur mise en œuvre. Outre la création de la carte, nous avons dû imaginer et conceptualiser toutes les mécaniques du jeu en collaboration avec les développeurs pour concilier efficacité et charge de travail. Beaucoup d'idées ont été abandonnées ou modifiées, mais finalement, toutes les mécaniques ont été validées et sont aujourd'hui réalisées.</p>
+
+                        <h2>Gameplay (Valentin G, Jules M, Matteo E)</h2>
+                        <h3>Joueur</h3>
+                        <p>Dans notre jeu, le joueur doit ramasser des objets, des clés pour ouvrir des portes, et des billets, objectif final. Pour l'inventaire, j'ai créé un dictionnaire où chaque élément ramassé est une clé et la valeur est le nombre d'exemplaires de cet élément. J'ai associé des blocs de texte à l'inventaire pour mettre à jour le texte à chaque ajout d'objet.</p>
+                        <p>J'ai rencontré des problèmes avec le ramassage des objets. Initialement, je voulais que les objets soient automatiquement ajoutés à l'inventaire en cas de collision, mais cela causait des problèmes comme récupérer une clé sans la voir. J'ai donc modifié le système pour utiliser un raycast, comme pour l'ouverture des portes. Ainsi, le joueur doit voir la clé et appuyer sur un bouton pour la ramasser. L'ajout de l'argent pour le coffre-fort a ensuite été facile en utilisant le même système que pour les clés.</p>
+
+                        <h3>Garde</h3>
+                        <p>Le gameplay du garde est totalement différent de celui du joueur, nécessitant de repartir de zéro pour chaque aspect. Aucun script du joueur n'a été réutilisé pour le garde et vice versa.</p>
+
+                        <h4>Choix des salles</h4>
+                        <p>Le garde commence par spécifier les salles. L'interface se compose d'une carte stratégique créée avec Blender, représentant les deux étages. Reproduire cette carte a été long en raison de la complexité du logiciel. L'interface inclut des boutons de salles et de types. Les boutons de salles permettent de sélectionner une salle sur la carte, et les boutons de types permettent de définir le type de la salle sélectionnée, par exemple transformer une Meeting Room en Key Room via un script en C#.</p>
+                        <p>Le principal défi de ce script a été de prévoir toutes les situations possibles, y compris les erreurs du joueur. Un énumérateur Room contient tous les types de salles possibles, et un attribut selected indique la dernière salle sélectionnée. Chaque bouton de type utilise un switch pour gérer les différentes situations. Par exemple, si une salle définie comme Code Room est redéfinie en Key Room, le nombre de Code Rooms est ajusté en conséquence. Une liste de toutes les salles a été créée pour simplifier la gestion des clés sur la carte. Enfin, dans Unity, les salles changent de couleur selon leur type pour faciliter la compréhension et la gestion de l'interface en jeu.</p>
+
+                        <h2>IA (Elouan Dantec)</h2>
+                        <p>La création d'une IA fonctionnelle était cruciale pour notre projet, notamment pour intégrer des PNJ empêchant le cambrioleur, incarné par le joueur, de réussir. Nous avons développé un gardien IA capable de patrouiller, de déterminer le chemin le plus court entre deux points de la carte, et de traquer le cambrioleur lorsqu'il entre dans son champ de vision.</p>
+                        <p>La fonctionnalité NavMesh d’Unity nous a permis de configurer ce gardien sur les trois étages de notre carte, en définissant son champ de vision et ses capacités de traque.</p>
+                        <p>Le défi principal a été de synchroniser ce PNJ avec la carte stratégique du gardien de sécurité, permettant à celui-ci de donner des ordres et de définir des points de destination pour les PNJ. Nous avons développé un système pour obtenir les coordonnées des points définis par le gardien et déplacer les PNJ en conséquence.</p>
+                        <p>Grâce à une communication et une coordination efficaces au sein de l'équipe, nous avons achevé l'implémentation de l'IA dans les délais.</p>
+
+                        <h2>Multijoueur (Paul Boucheret)</h2>
+                        <p>Pour le multijoueur de notre jeu sur Unity, nous avons utilisé Photon PUN. Nous avons dû gérer le spawn des joueurs, créer les menus (lobby et chargement), et configurer l'hébergement sur un serveur Photon PUN.</p>
+                        <p>La coordination de l'équipe et la gestion des versions ont été des défis majeurs, nécessitant une communication constante et des tests rigoureux pour éviter les désynchronisations et bugs.</p>
+                        <p>Malgré ces défis, nous avons intégré notre projet au serveur Photon PUN et travaillé sur les menus d'accueil et de chargement pour assurer une expérience fluide et immersive.</p>
+                        <p>Nous avons mis en place deux points de spawn distincts : un pour le garde et un pour le voleur. En utilisant les GameObjects et les Transform components dans Unity, nous avons défini les emplacements de départ et utilisé des prefabs pour instancier les personnages. Une fonction aléatoire en C# attribue les rôles de manière aléatoire à chaque partie, diversifiant ainsi l'expérience de jeu.</p>
+                        <p>En résumé, le développement multijoueur a été complexe mais enrichissant, et nous restons confiants quant au succès final de notre jeu.</p>
+                    </section>
+                </article>
     </section>
 
 
@@ -144,7 +176,7 @@
                                 <li><a href="index.html">Accueil</a></li>
                                 <li><a href="ProposDeNous.html">A Propos de Nous</a></li>
                                 <li class="current"><a href="Avancement.html">Notre Avancement</a></li>
-                                <li><a href="Reference.html">Référence</a></li>
+                                <li><a href="Reference.html">Guide de démarrage</a></li>
                                 <li><a href="no-sidebar.html">Mentions légale</a></li>
                             </ul>
                         </section>
