@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Crystal Games</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="images/logo.png" href=" images/logo.png">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			img {
+				width: 300px; /* Définissez la largeur de l'image */
+				height: auto; /* Laissez la hauteur automatique pour conserver les proportions */
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html" id="logo">StealWar <em> by Crystal games</em></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="index.html">Acceuil</a></li>
+								<li><a href="ProposDeNous.html">A Propos de Nous</a></li>
+								<li><a href="Avancement.html">Notre Avancement</a></li>
+								<li><a href="Reference.html">Guide de démarrage</a></li>
+								<li><a href="no-sidebar.html">Mentions légale</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Banner-->
+
+					<div class="carousel">
+						<div class="carousel-inner">
+							<img class="carousel-item" src="images/image.png" alt="Image 1">
+							<img class="carousel-item" src="images/image2.png" alt="Image 2">
+							<img class="carousel-item" src="images/image3.jpeg" alt="Image 3">
+							<img class="carousel-item" src="images/banner.jpg" alt="Image 4">
+						</div>
+						<button class="prev" onclick="prevSlide()">❮</button>
+						<button class="next" onclick="nextSlide()">❯</button>
+					</div>
+
+					<script>
+						let currentIndex = 0;
+
+						function nextSlide() {
+							const carousel = document.querySelector('.carousel-inner');
+							const numSlides = carousel.children.length;
+							currentIndex = (currentIndex + 1) % numSlides;
+							carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+						}
+
+						function prevSlide() {
+							const carousel = document.querySelector('.carousel-inner');
+							const numSlides = carousel.children.length;
+							currentIndex = (currentIndex - 1 + numSlides) % numSlides;
+							carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+						}
+					</script>
+
+			<!-- Gigantic Heading -->
+			<section class="wrapper style2">
+				<div class="container">
+					<header class="major">
+						<h2>Notre jeu</h2>
+						<p>N'attendez plus pour télécharger notre jeu
+						</p>
+						<a href="https://www.mediafire.com/file/53910b0xdrhl4zc/StealWar.zip/file" download>  <!-- Ici faut mettre le chemin de notre fichier  -->
+							<button type="button" title="Télécharger le jeu">
+								<i class="fa fa-download"></i> Télécharger le jeu
+							</button>
+						</a>
+					</header>
+				</div>
+			</section>
+			<section id="one" class="main style1">
+			<div class="container">
+				<div class="row gtr-150">
+					<div class="col-6 col-12-medium">
+						<header class="major">
+							<h2>Notre inspiration pour<br />
+								StealWar</h2>
+						</header>
+						<p>La nature du projet vient donc d’un jeu de cambriolage. La partie commence par une mise au point stratégique, le voleur choisit ses particularités physiques parmi celles proposées. Il s’agit d’avantages spécifiques limités lui permettant de se spécialiser dans un certain domaine pour avoir un avantage sur celui-ci. Le responsable de la sécurité quant à lui choisit de placer les gardes, incarnés par des intelligences artificielles, les caméras, pièges et autres outils de défense sur la carte à la discrétion du voleur. Cela permet au jeu d’avoir une rejouabilité bien plus grande que si ces éléments étaient fixes pour toutes les parties. Ensuite, la phase de jeu commence et les deux camps s’affrontent indirectement, le but étant de déjouer les plans de l’autre et d’essayer de comprendre la stratégie de l’autre. Si le voleur arrive à passer au travers des obstacles posés par le garde, à savoir caméras, gardes, alarmes, portes verrouillées et autre ajout possible en cours de développement. Alors il lui faut s’enfuir, le policier a alors deux choix, sortir de sa salle et essayer d’aller lui-même attraper le voleur, ou continuer d’essayer de piloter à distance la sécurité de l’endroit.
+						</p>
+					</div>
+					<div class="col-6 col-12-medium imp-medium">
+						<span class="image fit"><img src="images/logo1.png" alt="" /></span>
+					</div>
+				</div>
+			</div>
+		</section>
+			<!-- Highlights -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div class="row gtr-200">
+
+							<section class="col-6 col-6-narrower">
+								<div class="box highlight">
+									<i><span class="image"><img src="images/cop.png" alt="" /></span></i>
+									<h3>Responsable de la sécurité</h3>
+									<p>Son but est d’empêcher le cambrioleur de dérober le précieux butin. Ce joueur se trouve dans une salle isolée du bâtiment, depuis laquelle il lui est possible d’accéder aux caméras de surveillance du lieu cambriolé, lui permettant de repérer son adversaire. Il a aussi en sa possession une carte dynamique stratégique lui permettant d’aiguiller les gardes, de déclencher des pièges, des alarmes et de fermer des portes, dans le but d’empêcher le cambrioleur d’accéder au butin.</p>
+								</div>
+							</section>
+							<section class="col-6 col-6-narrower">
+								<div class="box highlight">
+									<i><span class="image"><img src="images/robber.jpg" alt="" /></span></i>
+									<h3>Cambrioleur</h3>
+									<p>Son but principal étant de s’infiltrer dans un bâtiment sécurisé afin de voler le butin, caché dans un endroit spécifique de la carte. Pour cela, il doit éviter les gardes qui rôdent et essaient de l’arrêter. Ces gardes sont des intelligences artificielles qui poursuivent et tentent d’attraper le cambrioleur s'ils l’aperçoivent. Si le cambrioleur parvient à récupérer le butin et à s’échapper dans le temps imparti, il remporte la partie. Si, au contraire, il se fait attraper par un garde ou arrive à la fin du temps imparti, il perd alors la partie.</p>
+								</div>
+							</section>
+						</div>
+					</div>
+				</section>
+
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<section class="col-3 col-6-narrower col-12-mobilep">
+								<h3>Liens</h3>
+								<ul class="links">
+									<li class="current"><a href="index.html">Accueil</a></li>
+									<li><a href="ProposDeNous.html">A Propos de Nous</a></li>
+									<li><a href="Avancement.html">Notre Avancement</a></li>
+									<li><a href="Reference.html">Guide de démarrage</a></li>
+									<li><a href="no-sidebar.html">Mentions légale</a></li>
+								</ul>
+							</section>
+							<section class="col-6 col-12-narrower">
+								<h3>Notre histoire</h3>
+								<div>
+									Nous sommes une équipe de passionnés dont le but est de divertir chacun grâce à des jeux pour tout le monde. Nous sommes un groupe d'étudiants qui se sont réunis pour créer des jeux de qualités au goût de chacun. Notre objectif est d’apprendre et de découvrir le monde des jeux vidéo.
+								</div>
+							</section>
+							<section class="col-3 col-6-narrower col-12-mobilep">
+								<h3>Contactez nous</h3>
+								<div>
+									<p2>info@crystal-games.com</p2>
+								</div>
+								<!-- Icons -->
+								<div>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+								</div>
+							</section>
+						</div>
+					</div>
+
+
+
+					<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy;Crystal Games co. All rights reserved</li><li>Sponsorisé par <a href="https://www.epita.fr/">l'épita</a></li>
+							</ul>
+						</div>
+
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
